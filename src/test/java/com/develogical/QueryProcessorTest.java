@@ -50,4 +50,28 @@ public class QueryProcessorTest {
     public void returnsNumberThatsSquareAndCube() {
         assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 64, 729, 30"), containsString("64, 729"));
     }
+
+    @Test
+    public void stringToNumbers(){
+        List<Integer> numbers = new ArrayList<Integer>();
+        numbers.add(2021);
+        numbers.add(20452);
+        assertThat(queryProcessor.stringToNumbers(" 2021, 20452"), is(numbers));
+    }
+
+    @Test
+    public void returnLargestNumberFromQuery(){
+        assertThat(queryProcessor.process("cdaba3f0:which of the following numbers is the largest: 156, 20"), containsString("156"));
+    }
+
+    @Test
+    public void returnNumbersMultiplied(){
+        assertThat(queryProcessor.process("what is 15 multiplied by 13"), containsString("195"));
+    }
+
+    @Test
+    public void yearForPrimeMinister() throws Exception {
+        assertThat(queryProcessor.process(" which year was Theresa May first elected as the Prime Minister of Great Britain"), containsString("2016"));
+    }
+    
 }
