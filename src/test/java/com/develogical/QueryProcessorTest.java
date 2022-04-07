@@ -63,4 +63,10 @@ public class QueryProcessorTest {
     public void returnNumbersMultiplied(){
         assertThat(queryProcessor.process("what is 15 multiplied by 13"), containsString("195"));
     }
+
+    @Test
+    public void yearForPrimeMinister() throws Exception {
+        assertThat(queryProcessor.process(" which year was Theresa May first elected as the Prime Minister of Great Britain"), containsString("2016"));
+    }
+    
 }

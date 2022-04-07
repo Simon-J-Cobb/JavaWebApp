@@ -25,6 +25,9 @@ public class QueryProcessor {
         if(query.toLowerCase().contains("largest")) {
             return String.valueOf(largestNumberFrom(stringToNumbers(query.toLowerCase(Locale.ROOT).split(":")[2])));
         }
+        if(query.toLowerCase().contains("theresa may")){
+            return "2016";
+        }
         return "";
     }
 
