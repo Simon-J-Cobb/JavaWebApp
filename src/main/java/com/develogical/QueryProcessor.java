@@ -117,9 +117,9 @@ public class QueryProcessor {
     public String createReturnStringFromIntList(List<Integer> ints) {
         String returnString = "";
         for(Integer integer : ints) {
-            returnString += " "  + integer.toString();
+            returnString += ", "  + integer.toString();
         }
-        return  returnString;
+        return  returnString.substring(2);
     }
 
     public int getFibonnaciTerm(int term) {
