@@ -1,5 +1,9 @@
 package com.develogical;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -12,5 +16,9 @@ public class QueryProcessor {
             return "MintChocChip";
         }
         return "";
+    }
+
+    public Integer largestNumberFrom(List<Integer> numbers){
+        return Collections.max(numbers);
     }
 }
