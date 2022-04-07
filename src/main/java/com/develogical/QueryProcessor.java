@@ -1,7 +1,6 @@
 package com.develogical;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -20,11 +19,26 @@ public class QueryProcessor {
             ArrayList<Integer> integers = getNumbers(query);
             return String.valueOf(integers.get(0) + integers.get(1));
         }
+        if(query.toLowerCase().contains("square and a cube")) {
+            ArrayList<Integer> integers = getNumbers(query);
+            ArrayList<Integer> sqcbNumbers = new ArrayList<>();
+
+            for(Integer integer: integers) {
+                double number = integer.intValue();
+                if((Math.sqrt(number) - Math.floor(Math.sqrt(number)))==0 &&
+                (Math.cbrt(number) - Math.floor(Math.cbrt(number)))==0) {
+                    sqcbNumbers.add(integer);
+                }
+            }
+
+            return sqcbNumbers.toString();
+        }
         return "";
     }
 
     private ArrayList<Integer> getNumbers(String query) {
-        String[] queryParts = query.split(" ");
+        String queryWithoutCommas = query.replace(",", "");
+        String[] queryParts = queryWithoutCommas.split(" ");
         ArrayList<Integer> integers = new ArrayList<>();
         for(String queryPart : queryParts) {
             try {

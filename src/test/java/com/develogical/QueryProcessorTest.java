@@ -45,4 +45,9 @@ public class QueryProcessorTest {
         numbers.add(20452);
         assertThat(queryProcessor.largestNumberFrom(numbers), is(20452));
     }
+
+    @Test
+    public void returnsNumberThatsSquareAndCube() {
+        assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 64, 729, 30"), containsString("64, 729"));
+    }
 }
