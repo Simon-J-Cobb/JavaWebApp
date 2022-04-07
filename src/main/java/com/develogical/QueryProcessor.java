@@ -1,8 +1,10 @@
 package com.develogical;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class QueryProcessor {
 
@@ -20,5 +22,10 @@ public class QueryProcessor {
 
     public Integer largestNumberFrom(List<Integer> numbers){
         return Collections.max(numbers);
+    }
+
+    public List<Integer> stringToNumbers(String s) {
+        String[] textnumbers = s.split(",");
+        return Arrays.stream(textnumbers).map(((number) -> Integer.parseInt(number.trim()))).collect(Collectors.toList());
     }
 }
