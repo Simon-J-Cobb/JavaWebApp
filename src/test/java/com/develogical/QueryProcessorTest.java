@@ -58,4 +58,9 @@ public class QueryProcessorTest {
     public void returnLargestNumberFromQuery(){
         assertThat(queryProcessor.process("cdaba3f0:which of the following numbers is the largest: 156, 20"), containsString("156"));
     }
+
+    @Test
+    public void returnNumbersMultiplied(){
+        assertThat(queryProcessor.process("what is 15 multiplied by 13"), containsString("195"));
+    }
 }

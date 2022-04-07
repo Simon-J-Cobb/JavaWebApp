@@ -18,6 +18,10 @@ public class QueryProcessor {
             ArrayList<Integer> integers = getNumbers(query);
             return String.valueOf(integers.get(0) + integers.get(1));
         }
+        if(query.toLowerCase().contains("multiplied")) {
+            ArrayList<Integer> integers = getNumbers(query);
+            return String.valueOf(integers.get(0) * integers.get(1));
+        }
         if(query.toLowerCase().contains("largest")) {
             return String.valueOf(largestNumberFrom(stringToNumbers(query.toLowerCase(Locale.ROOT).split(":")[2])));
         }
