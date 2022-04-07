@@ -2,6 +2,9 @@ package com.develogical;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -33,5 +36,13 @@ public class QueryProcessorTest {
     @Test
     public void returnSumOfNumbers() {
         assertThat(queryProcessor.process("what is 1 plus 2"), containsString("3"));
+    }
+
+    @Test
+    public void returnLargestNumber() {
+        List<Integer> numbers = new ArrayList<Integer>();
+        numbers.add(2021);
+        numbers.add(20452);
+        assertThat(queryProcessor.largestNumberFrom(numbers), is(20452));
     }
 }
