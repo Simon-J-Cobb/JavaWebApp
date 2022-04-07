@@ -19,7 +19,7 @@ public class QueryProcessor {
             return String.valueOf(integers.get(0) + integers.get(1));
         }
         if(query.toLowerCase().contains("largest")) {
-            return String.valueOf(largestNumberFrom(stringToNumbers(query.toLowerCase(Locale.ROOT).split(":")[1])));
+            return String.valueOf(largestNumberFrom(stringToNumbers(query.toLowerCase(Locale.ROOT).split(":")[2])));
         }
         return "";
     }
