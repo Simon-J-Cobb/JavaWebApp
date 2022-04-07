@@ -45,6 +45,15 @@ public class QueryProcessor {
         if(query.toLowerCase().contains("theresa may")){
             return "2016";
         }
+
+        if(query.toLowerCase().contains(("james bond"))) {
+            return "Sean Connery";
+        }
+
+        if(query.toLowerCase().contains(("eiffel tower"))) {
+            return "Paris";
+        }
+
         return "";
     }
 
