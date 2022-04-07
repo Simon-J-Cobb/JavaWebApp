@@ -116,9 +116,15 @@ public class QueryProcessorTest {
     public void returnPrimeNumber(){
         assertThat(queryProcessor.process("19cda530: which of the following numbers are primes: 375, 409"), containsString("409"));
     }
-    
+
     @Test
     public void returnPrimeNumbers2() {
         assertThat(queryProcessor.process("19cda530: which of the following numbers are primes: 167, 157, 651, 292"), containsString("167, 157"));
     }
+
+    @Test
+    public void returnMinusNumber() {
+        assertThat(queryProcessor.process("what is 3 minus 1"), containsString("2"));
+    }
+
 }
