@@ -1,9 +1,6 @@
 package com.develogical;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class QueryProcessor {
@@ -20,6 +17,9 @@ public class QueryProcessor {
         if(query.toLowerCase().contains("plus")) {
             ArrayList<Integer> integers = getNumbers(query);
             return String.valueOf(integers.get(0) + integers.get(1));
+        }
+        if(query.toLowerCase().contains("largest")) {
+            return String.valueOf(largestNumberFrom(stringToNumbers(query.toLowerCase(Locale.ROOT).split(":")[1])));
         }
         return "";
     }
