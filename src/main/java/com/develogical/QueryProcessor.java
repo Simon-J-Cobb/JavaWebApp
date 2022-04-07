@@ -8,6 +8,20 @@ import java.util.stream.Collectors;
 
 public class QueryProcessor {
 
+    static boolean isPrime(int n)
+    {
+        // Corner case
+        if (n <= 1)
+            return false;
+
+        // Check from 2 to n-1
+        for (int i = 2; i < n; i++)
+            if (n % i == 0)
+                return false;
+
+        return true;
+    }
+
     public String process(String query) {
         if (query.toLowerCase().contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
@@ -53,6 +67,9 @@ public class QueryProcessor {
         if(query.toLowerCase().contains(("eiffel tower"))) {
             return "Paris";
         }
+        if(query.toLowerCase(Locale.ROOT).contains("following numbers are primes")){
+            return createReturnStringFromIntList(primeNumbersFrom(stringToNumbers(query.toLowerCase(Locale.ROOT).split(":")[2])));
+        }
 
         return "";
     }
@@ -72,6 +89,10 @@ public class QueryProcessor {
 
     public Integer largestNumberFrom(List<Integer> numbers){
         return Collections.max(numbers);
+    }
+
+    public List<Integer> primeNumbersFrom(List<Integer> numbers){
+        return numbers.stream().filter((x) -> isPrime(x)).collect(Collectors.toList());
     }
 
     public List<Integer> stringToNumbers(String s) {

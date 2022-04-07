@@ -85,4 +85,36 @@ public class QueryProcessorTest {
     }
 
 
+
+    @Test
+    public void checkIsPrime(){
+        assertThat(QueryProcessor.isPrime(2), is(true));
+    }
+
+    @Test
+    public void checkIsNotPrime(){
+        assertThat(QueryProcessor.isPrime(4), is(false));
+    }
+
+    @Test
+    public void primeNumbersFrom(){
+        List<Integer> numbers = new ArrayList<Integer>();
+        numbers.add(357);
+        numbers.add(409);
+        numbers.add(2);
+        List<Integer> primeNumbers = new ArrayList<Integer>();
+        primeNumbers.add(409);
+        primeNumbers.add(2);
+        assertThat(queryProcessor.primeNumbersFrom(numbers), is(primeNumbers));
+    }
+    @Test
+    public void returnPrimeNumbers(){
+        assertThat(queryProcessor.process("19cda530: which of the following numbers are primes: 375, 409, 2"), containsString(" 409 2"));
+    }
+
+    @Test
+    public void returnPrimeNumber(){
+        assertThat(queryProcessor.process("19cda530: which of the following numbers are primes: 375, 409"), containsString(" 409"));
+    }
+
 }
