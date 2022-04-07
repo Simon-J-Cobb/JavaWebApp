@@ -48,7 +48,7 @@ public class QueryProcessorTest {
 
     @Test
     public void returnsNumberThatsSquareAndCube() {
-        assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 64, 729, 30, 20"), containsString("64 729"));
+        assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 64, 729, 30, 20"), containsString("64, 729"));
     }
 
     @Test
@@ -109,12 +109,16 @@ public class QueryProcessorTest {
     }
     @Test
     public void returnPrimeNumbers(){
-        assertThat(queryProcessor.process("19cda530: which of the following numbers are primes: 375, 409, 2"), containsString(" 409 2"));
+        assertThat(queryProcessor.process("19cda530: which of the following numbers are primes: 375, 409, 2"), containsString("409, 2"));
     }
 
     @Test
     public void returnPrimeNumber(){
-        assertThat(queryProcessor.process("19cda530: which of the following numbers are primes: 375, 409"), containsString(" 409"));
+        assertThat(queryProcessor.process("19cda530: which of the following numbers are primes: 375, 409"), containsString("409"));
     }
-
+    
+    @Test
+    public void returnPrimeNumbers2() {
+        assertThat(queryProcessor.process("19cda530: which of the following numbers are primes: 167, 157, 651, 292"), containsString("167, 157"));
+    }
 }
