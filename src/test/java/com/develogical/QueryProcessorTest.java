@@ -122,4 +122,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("what is 3 minus 1"), containsString("2"));
     }
 
+    @Test
+    public void returnNthFibonacciTerm() {
+        assertThat(queryProcessor.process("what is the 4th number in the Fibonacci Sequence"), containsString("3"));
+    }
+
 }

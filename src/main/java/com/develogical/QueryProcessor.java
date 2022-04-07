@@ -75,6 +75,16 @@ public class QueryProcessor {
             return createReturnStringFromIntList(primeNumbersFrom(stringToNumbers(query.toLowerCase(Locale.ROOT).split(":")[2])));
         }
 
+        if(query.toLowerCase().contains("fibonacci")) {
+            query = query.replace("th", "");
+            query = query.replace("st", "");
+            query = query.replace("nd", "");
+            query = query.replace("rd", "");
+            int term = getNumbers(query).get(0).intValue();
+            int value = getFibonnaciTerm(term);
+            return "" + value;
+        }
+
         return "";
     }
 
@@ -110,5 +120,12 @@ public class QueryProcessor {
             returnString += " "  + integer.toString();
         }
         return  returnString;
+    }
+
+    public int getFibonnaciTerm(int term) {
+        if(term < 2) {
+            return 1;
+        }
+        return getFibonnaciTerm(term - 2) + getFibonnaciTerm((term -3));
     }
 }
