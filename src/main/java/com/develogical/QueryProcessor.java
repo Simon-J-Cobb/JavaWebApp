@@ -11,6 +11,11 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what is your name")) {
             return "MintChocChip";
         }
+        if(query.toLowerCase().contains("plus")) {
+
+        }
         return "";
     }
+
+    
 }

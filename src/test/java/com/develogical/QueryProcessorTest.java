@@ -29,4 +29,9 @@ public class QueryProcessorTest {
     public void returnTeamName() {
         assertThat(queryProcessor.process("what is your name"), containsString("MintChocChip"));
     }
+
+    @Test
+    public void returnSumOfNumbers() {
+        assertThat(queryProcessor.process("what is 1 plus 2"), containsString("3"));
+    }
 }
