@@ -8,7 +8,6 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
 
 public class QueryProcessorTest {
 
@@ -32,6 +31,11 @@ public class QueryProcessorTest {
     @Test
     public void returnTeamName() {
         assertThat(queryProcessor.process("what is your name"), containsString("MintChocChip"));
+    }
+
+    @Test
+    public void returnSumOfNumbers() {
+        assertThat(queryProcessor.process("what is 1 plus 2"), containsString("3"));
     }
 
     @Test

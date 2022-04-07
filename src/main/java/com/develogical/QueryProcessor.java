@@ -17,7 +17,23 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("what is your name")) {
             return "MintChocChip";
         }
+        if(query.toLowerCase().contains("plus")) {
+            ArrayList<Integer> integers = getNumbers(query);
+            return String.valueOf(integers.get(0) + integers.get(1));
+        }
         return "";
+    }
+
+    private ArrayList<Integer> getNumbers(String query) {
+        String[] queryParts = query.split(" ");
+        ArrayList<Integer> integers = new ArrayList<>();
+        for(String queryPart : queryParts) {
+            try {
+                integers.add(Integer.parseInt(queryPart));
+            } catch (Exception e) {}
+        }
+
+        return integers;
     }
 
     public Integer largestNumberFrom(List<Integer> numbers){
