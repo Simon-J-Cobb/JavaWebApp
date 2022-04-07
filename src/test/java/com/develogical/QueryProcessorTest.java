@@ -48,7 +48,7 @@ public class QueryProcessorTest {
 
     @Test
     public void returnsNumberThatsSquareAndCube() {
-        assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 64, 729, 30"), containsString("64, 729"));
+        assertThat(queryProcessor.process("which of the following numbers is both a square and a cube: 64, 729, 30, 20"), containsString("64 729"));
     }
 
     @Test

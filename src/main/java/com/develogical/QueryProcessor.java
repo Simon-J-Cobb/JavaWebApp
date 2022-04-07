@@ -33,7 +33,7 @@ public class QueryProcessor {
                 }
             }
 
-            return sqcbNumbers.toString();
+            return createReturnStringFromIntList(sqcbNumbers);
         }
         if(query.toLowerCase().contains("multiplied")) {
             ArrayList<Integer> integers = getNumbers(query);
@@ -77,5 +77,13 @@ public class QueryProcessor {
     public List<Integer> stringToNumbers(String s) {
         String[] textnumbers = s.split(",");
         return Arrays.stream(textnumbers).map(((number) -> Integer.parseInt(number.trim()))).collect(Collectors.toList());
+    }
+
+    public String createReturnStringFromIntList(List<Integer> ints) {
+        String returnString = "";
+        for(Integer integer : ints) {
+            returnString += " "  + integer.toString();
+        }
+        return  returnString;
     }
 }
